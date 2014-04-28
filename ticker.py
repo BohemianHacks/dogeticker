@@ -8,6 +8,7 @@ DogeChainUrl = 'https://dogechain.info/chain/Dogecoin/q/addressbalance/'
 ExchangeUrl = 'https://www.dogeapi.com/wow/?a=get_current_price&convert_to=USD&amount_doge=1'
 address = 'DN395oxmaPTKFoB5fWUh8cD7qrx3HAM3UP'
 interval = 30.0
+ExitButtons = [curses.ascii.ESC, curses.ascii.ascii('q')]
 
 def getExchangeRate():
     try:
@@ -33,13 +34,13 @@ curses.curs_set(0)
 key = win.getch()
 last = time.time()
 
-while key != curses.ascii.ESC:
+while !(key in ExitButtons):
     balance = "$" + str(getBalance(address) * getExchangeRate())
     win.clear()
     win.addstr(balance)
     win.refresh()
 
-    while time.time() - last < interval and key != curses.ascii.ESC:
+    while time.time() - last < interval and !(key in ExitButton):
         curses.napms(200)
         key = win.getch()
 
