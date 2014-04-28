@@ -40,7 +40,7 @@ while not (key in ExitButtons):
     win.addstr(balance)
     win.refresh()
 
-    while time.time() - last < interval and not (key in ExitButton):
+    while time.time() - last < interval and not (key in ExitButtons):
         curses.napms(200)
         key = win.getch()
 
