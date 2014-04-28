@@ -34,13 +34,13 @@ curses.curs_set(0)
 key = win.getch()
 last = time.time()
 
-while !(key in ExitButtons):
+while not (key in ExitButtons):
     balance = "$" + str(getBalance(address) * getExchangeRate())
     win.clear()
     win.addstr(balance)
     win.refresh()
 
-    while time.time() - last < interval and !(key in ExitButton):
+    while time.time() - last < interval and not (key in ExitButton):
         curses.napms(200)
         key = win.getch()
 
