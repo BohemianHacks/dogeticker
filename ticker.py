@@ -14,14 +14,14 @@ def getExchangeRate():
     try:
         data = float(json.loads(urllib2.urlopen(ExchangeUrl).read())['data']['amount'])
     except:
-        data = 0.0
+        data = -1.0
     return data
 
 def getBalance(address):
     try:
         data = float(urllib2.urlopen(DogeChainUrl+address).read())
     except:
-        data = 0.0
+        data = -1.0
     return data
 
 win = curses.initscr()
@@ -35,9 +35,17 @@ key = win.getch()
 last = time.time()
 
 while not (key in ExitButtons):
-    balance = "$" + str(getBalance(address) * getExchangeRate())
+    
+    balance = getBalance(address)
+    ExchangeRate = getExchangeRate()
+    
+    if balance >= 0.0 and ExchangeRate >= 0.0:
+        TickerText = "$" + str(balance * ExchangeRate)
+    else:
+        TickerText = "Connection Error..."
+        
     win.clear()
-    win.addstr(balance)
+    win.addstr(TickerText)
     win.refresh()
 
     while time.time() - last < interval and not (key in ExitButtons):
