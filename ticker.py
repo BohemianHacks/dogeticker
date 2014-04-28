@@ -8,7 +8,7 @@ DogeChainUrl = 'https://dogechain.info/chain/Dogecoin/q/addressbalance/'
 ExchangeUrl = 'https://www.dogeapi.com/wow/?a=get_current_price&convert_to=USD&amount_doge=1'
 address = 'DN395oxmaPTKFoB5fWUh8cD7qrx3HAM3UP'
 interval = 30.0
-ExitButtons = [curses.ascii.ESC, curses.ascii.ascii('q')]
+ExitButtons = [curses.ascii.ESC, ord('q')]
 
 def getExchangeRate():
     try:
