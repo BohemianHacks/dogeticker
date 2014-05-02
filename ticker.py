@@ -40,7 +40,7 @@ while not (key in ExitButtons):
     ExchangeRate = getExchangeRate()
     
     if balance >= 0.0 and ExchangeRate >= 0.0:
-        TickerText = "Ð" + str(balance) + " $" + str(balance * ExchangeRate)
+        TickerText = "Ð".encode('utf-8') + str(balance) + "\n$" + str(balance * ExchangeRate)
     else:
         TickerText = "Connection Error..."
         
