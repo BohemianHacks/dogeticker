@@ -6,7 +6,7 @@ import time
 
 DogeChainUrl = 'https://dogechain.info/chain/Dogecoin/q/addressbalance/'
 ExchangeUrl = 'https://www.dogeapi.com/wow/?a=get_current_price&convert_to=USD&amount_doge=1'
-address = 'DN395oxmaPTKFoB5fWUh8cD7qrx3HAM3UP'
+address = 'DHQNu7chxq69hurKK7opDHmZ9dkGjoaVcJ'
 interval = 30.0
 ExitButtons = [curses.ascii.ESC, ord('q')]
 
